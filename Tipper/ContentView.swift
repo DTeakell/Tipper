@@ -57,6 +57,7 @@ struct ContentView: View {
                     VStack {
                         // Original Check Amount View
                         OriginalTextAmountView(checkAmount: $checkAmount)
+                            .focused($isFocused)
                         
                         // Tip Percentage
                         TipPercentageView(
@@ -72,6 +73,7 @@ struct ContentView: View {
                     }
                     .toolbar {
                         ToolbarItem(placement: .keyboard) {
+                            Spacer()
                             Button("Done") {
                                 if isFocused {
                                     isFocused = false
@@ -88,6 +90,7 @@ struct ContentView: View {
                 VStack {
                     // Original Check Amount View
                     OriginalTextAmountView(checkAmount: $checkAmount)
+                        .focused($isFocused)
                     
                     // Tip Percentage
                     TipPercentageView(
@@ -103,8 +106,9 @@ struct ContentView: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .keyboard) {
-                        Button("Done") {
-                            if isFocused {
+                        HStack {
+                            Spacer()
+                            Button("Done") {
                                 isFocused = false
                             }
                         }
@@ -123,7 +127,6 @@ struct ContentView: View {
 
 struct OriginalTextAmountView: View {
     @Binding var checkAmount: Double
-    @FocusState var isFocused: Bool
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize: DynamicTypeSize
     
     private let currencyCode = Locale.current.currency?.identifier ?? "USD"
@@ -137,7 +140,6 @@ struct OriginalTextAmountView: View {
                 .lineLimit(3)
             TextField("Enter check amount here", value: $checkAmount, format: .currency(code: currencyCode))
             .padding(dynamicTypeSize > .xxxLarge ? [.bottom, .horizontal] : .horizontal)
-            .focused($isFocused)
             .font(.title2)
             .fontWeight(.semibold)
             .keyboardType(.decimalPad)
