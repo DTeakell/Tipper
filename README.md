@@ -2,7 +2,7 @@
 A simple and accessible tip calculator built with SwiftUI. Supports Dynamic Type for enhanced accessibility.
 
 ### Screenshots
-
+<img src="./Screenshots/Tipper-Dark.png" alt="App Screenshot" width="200">  <img src="./Screenshots/Tipper-Dark-Accessibility.png" alt="App Screenshot" width="200">  <img src="./Screenshots/Tipper-Light-Accessibility.png" alt="App Screenshot" width="200">  <img src="./Screenshots/Tipper-Light-Keyboard.png" alt="App Screenshot" width="200">
 
 ### Features
 - **Dynamic Type Support** - Adjusts content to user's preferred text size without truncation and clipping.
